@@ -77,7 +77,7 @@ def add_thing():
 #Connect to DB
     client = connect_db()
 
-#Add thing to DB
+#Add the thing to the DB
     sql = """INSERT INTO things (name, price) VALUES (?, ?)"""
     values = [name, price]
     client.execute(sql, values)
@@ -97,10 +97,11 @@ def delete_thing(id):
     #Connect to DB
     client = connect_db()
 
+    #Add the thing to the DB
     sql = "DELETE FROM things WHERE id=?"
     values = [id]
     client.execute(sql, values)
-    
+
     return redirect("/")
 
 
