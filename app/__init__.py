@@ -92,7 +92,15 @@ def add_thing():
 # Thing deletion
 #-----------------------------------------------------------
 @app.get("/delete/<int:id>")
-def delete_thing(id):
+def delete_thing(id): 
+
+    #Connect to DB
+    client = connect_db()
+
+    sql = "DELETE FROM things WHERE id=?"
+    values = [id]
+    client.execute(sql, values)
+    
     return redirect("/")
 
 
